@@ -6,7 +6,7 @@ A calculator designed for the game poker quest.
 
 In poker quest you have to battle various monsters in a turn based, playing cards combat
 system. Each turn you, and the monster(s) get dealt a certain number of cards. To use
-an attack, you have to cards that match some criteria.
+an attack, you have to use cards that match some criteria.
 
 Examples for criteria could be:
      Pair - You must use a pair of cards to use this attack
