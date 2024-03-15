@@ -39,16 +39,20 @@ class VigenereCipher(object):
         self.alphabet = alphabet
 
     def code(self, text, dir):
+        # Since encoding and decoding is just a matter of shifting forward or backwards, this method has the argument dir
+        # for direction. Passing in 1 will encode and passing in -1 will decode.
         pw_len = len(self.key)
         new_text = ""
-        ord_first = ord(self.alphabet[0])
         alphabet_len = len(self.alphabet)
         for i in range(len(text)):
             char = text[i]
+            # If char is in alphabet then encode/decode it
             if char in self.alphabet:
                 key_letter = self.key[i % pw_len]
+                char_current_index = self.alphabet.index(char)
                 shift = self.alphabet.index(key_letter)
-                char = chr((((ord(char) - ord_first) + (shift * dir)) % alphabet_len) + ord_first)
+                new_index = (char_current_index + shift * dir) % alphabet_len
+                char = self.alphabet[new_index]
             new_text += char
         return new_text
     
